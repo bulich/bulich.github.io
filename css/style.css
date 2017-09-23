@@ -1,0 +1,351 @@
+body {
+	margin: 0 auto;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 300;
+	color: #333333;
+	background-color: #f2f2f2;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	box-shadow: 0 0 20px 0 #333;
+}
+
+.main-container h2 {
+	font-size: 30px;
+	line-height: 100px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 0 30px;
+}
+
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	min-height: 40px;
+	padding: 25px 100px;
+	background-color: #ffffff;
+}
+
+.main-header li {
+	list-style: none;
+}
+
+.main-header ul {
+	margin: 0;
+	padding: 0;
+}
+
+.social-links-list {
+	display: flex;
+}
+
+.site-navigation {
+	display: flex;
+}
+
+.social-link {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	font-size: 0;
+	background-position: center;
+	fill: #333333;
+}
+
+.site-navigation-link {
+	font-size: 14px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 55px;
+	color: #333333;
+}
+
+.social-link:hover {
+	fill: #bdb176;
+}
+
+.site-navigation-link:hover {
+	color: #bdb176;
+}
+
+.main-intro {
+	min-height: 70vh;
+	background-image: url("../img/intro-banner.jpg");
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	display: grid;
+	text-align: center;
+}
+
+.main-intro::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	left: 0;
+	background-color: #000000;
+	opacity: 0.2;
+}
+
+.intro-container {
+	z-index: 1;
+	color: #ffffff;
+	text-transform: uppercase;
+	align-self: center;
+	padding: 60px 20px;
+}
+
+.intro-container h1 {
+	font-size: 60px;
+	line-height: 60px;
+}
+
+.intro-container span {
+	font-size: 32px;
+	line-height: 60px;
+	letter-spacing: 1.5px;
+	opacity: 0.3;
+}
+
+.scroll-down-indicator {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	right: 0;
+}
+
+.scroll-down-indicator span {
+	font-size: 12px;
+	color: #ffffff;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.scroll-down-indicator span::before {
+	content: "";
+	position: absolute;
+	width: 28px;
+	height: 50px;
+	bottom: 30px;
+	right: 0;
+	left: 0;
+	margin: auto;
+	background-image: url("../img/mouse.png");
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.scroll-down-button {
+	display: block;
+}
+
+.scroll-down-button:hover {
+	fill: #bdb176;
+}
+
+.greetings-section {
+	min-height: 70vh;
+	background-color: #f3f3f3;
+	display: grid;
+}
+
+.greetings-container {
+	align-content: center;
+	text-align: center;
+}
+
+.about-me {
+	padding: 0 100px;
+}
+
+.greetings-container h2 {
+	margin-bottom: 70px;
+	color: #333333;
+}
+
+.avatar-container {
+	display: inline-block;
+	border: 5px solid #e7e7e7;
+	border-radius: 150px;
+	margin-bottom: 40px;
+}
+
+.greetings-container p {
+	font-size: 18px;
+	line-height: 30px;
+	color: #333333;
+}
+
+.works-title {
+	min-height: 20vh;
+	background-color: #ffffff;
+	text-align: center;
+	display: grid;
+	align-content: center;
+}
+
+.works-title h2 {
+	color: #333333;
+}
+
+.works-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	grid-auto-rows: minmax(400px, 40vh);
+	grid-gap: 20px;
+	min-height: 50vh;
+	padding-top: 50px;
+}
+
+.works-item {
+	position: relative;
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.works-item:nth-child(2) {
+	background-image: url("../img/sedona-index-1200.jpg");
+}
+
+.works-item:nth-child(1) {
+	background-image: url("../img/barbershop-index.jpg");
+}
+
+.works-item:nth-child(3) {
+	background-image: url("../img/sedona-hotels-1200.jpg");
+}
+
+.button-set {
+	position: absolute;
+	min-height: 8vh;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	background-color: #ffffff;
+	opacity: 0.9;
+	padding: 0 20px 20px;
+}
+
+.button-set h3 {
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.button-set:hover {
+	transition: background-color 1s ease;
+	background-color: #333333;
+	color: #ffffff;
+}
+
+.show-button {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 40px;
+	right: 0;
+	width: 200px;
+	height: 50px;
+	margin: auto;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.9;
+	color: #f3f3f3;
+	border: 2px solid #ffffff;
+	text-transform: uppercase;
+	font-size: 18px;
+	line-height: 50px;
+}
+
+.works-item:hover .show-button {
+	display: block;
+	z-index: 1;
+}
+
+.proficiency {
+	min-height: 40vh;
+	background-color: #222222;
+}
+
+.proficiency h2 {
+	color: #ffffff;
+	text-align: center;
+	padding: 50px 20px;
+}
+
+.proficiency-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.proficiency-item h3 {
+	font-size: 18px;
+	line-height: 72px;
+	text-align: center;
+	color: #f2f2f2;
+	letter-spacing: 2px;
+}
+
+.proficiency-item img {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.achievements {
+	min-height: 60vh;
+	background-color: #ffffff;
+}
+
+.achievements h2 {
+	margin: 0;
+	color: #333;
+	text-align: center;
+	padding: 50px 20px;
+	letter-spacing: 2px;
+}
+
+.achievements-container {
+	display: grid;
+	justify-content: center;
+}
+
+.main-footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-footer {
+	min-height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
