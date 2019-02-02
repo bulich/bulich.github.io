@@ -1,0 +1,12 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo img {
+    max-width: 100px;
+}

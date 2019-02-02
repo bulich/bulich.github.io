@@ -1,1 +1,0 @@
-# bulich.github.io
