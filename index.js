@@ -8,7 +8,7 @@ let searchUrl = ""
 document.addEventListener("DOMContentLoaded", () => {
     console.log('loaded')
     if (!form) return
-    form.addEventListener('change', onFormChange);
+    date.addEventListener('change', onFormChange);
     form.addEventListener('submit', onFormSumbit);
 })
 
