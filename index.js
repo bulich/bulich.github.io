@@ -6,6 +6,7 @@ let searchUrl = ""
 
 // --------------- Events
 document.addEventListener("DOMContentLoaded", () => {
+    console.log('loaded')
     if (!form) return
     form.addEventListener('change', onFormChange);
     form.addEventListener('submit', onFormSumbit);
