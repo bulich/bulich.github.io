@@ -12,12 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function onFormChange() {
+    console.log('on change');
     searchUrl = apiUrl + date.value;
 }
 
 function onFormSumbit(evt) {
+    console.log('on submit');
     evt && evt.preventDefault && evt.preventDefault();
     if (form.checkValidity()) {
+      console.log('prevented');
         window.location.href = searchUrl;
     }
 }
