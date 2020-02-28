@@ -387,7 +387,6 @@
         }
 
         if (_this.s.dynamic) {
-
             _lgUtils2.default.trigger(this.el, 'onBeforeOpen');
 
             _this.index = _this.s.index || 0;
@@ -398,6 +397,8 @@
                 setTimeout(function () {
                     _this.build(_this.index);
                 });
+            } else {
+                _this.open();
             }
         } else {
 
@@ -423,7 +424,21 @@
                 })(i);
             }
         }
+
     };
+
+    Plugin.prototype.open = function () {
+        var _this = this;
+
+        this.lGalleryOn = true;
+
+        if (_this.outer) {
+            _lgUtils2.default.addClass(_this.outer, 'lg-visible');
+        }
+
+        _lgUtils2.default.addClass(document.querySelector('.lg-backdrop'), 'in');
+
+    }
 
     Plugin.prototype.build = function (index) {
 
@@ -1492,41 +1507,17 @@
 
         var _this = this;
 
-  
-
-        /**
-         * if d is false or undefined destroy will only close the gallery
-         * plugins instance remains with the element
-         *
-         * if d is true destroy will completely remove the plugin
-         */
-
-
-        // Unbind all events added by lightGallery
-        // _lgUtils2.default.off(this.el, '.lgtm');
-
-        // Distroy all lightGallery modules
-        // for (var key in window.lgModules) {
-        //     if (_this.modules[key]) {
-        //         _this.modules[key].destroy(d);
-        //     }
-        // }
-
         this.lGalleryOn = false;
 
         clearTimeout(_this.hideBartimeout);
         this.hideBartimeout = false;
 
-        _lgUtils2.default.removeClass(document.body, 'lg-on');
-        _lgUtils2.default.removeClass(document.body, 'lg-from-hash');
 
         if (_this.outer) {
             _lgUtils2.default.removeClass(_this.outer, 'lg-visible');
         }
 
         _lgUtils2.default.removeClass(document.querySelector('.lg-backdrop'), 'in');
-
-        alert("closed!")
     };
 
     window.lightGallery = function (el, options) {
