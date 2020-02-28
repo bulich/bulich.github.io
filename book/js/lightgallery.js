@@ -1492,12 +1492,7 @@
 
         var _this = this;
 
-        if (!d) {
-            _lgUtils2.default.trigger(_this.el, 'onBeforeClose');
-        }
-
-        document.body.scrollTop = _this.prevScrollTop;
-        document.documentElement.scrollTop = _this.prevScrollTop;
+  
 
         /**
          * if d is false or undefined destroy will only close the gallery
@@ -1506,36 +1501,22 @@
          * if d is true destroy will completely remove the plugin
          */
 
-        if (d) {
-            if (!_this.s.dynamic) {
-                // only when not using dynamic mode is $items a jquery collection
-
-                for (var i = 0; i < this.items.length; i++) {
-                    _lgUtils2.default.off(this.items[i], '.lg');
-                    _lgUtils2.default.off(this.items[i], '.lgcustom');
-                }
-            }
-
-            var lguid = _this.el.getAttribute('lg-uid');
-            delete window.lgData[lguid];
-            _this.el.removeAttribute('lg-uid');
-        }
 
         // Unbind all events added by lightGallery
-        _lgUtils2.default.off(this.el, '.lgtm');
+        // _lgUtils2.default.off(this.el, '.lgtm');
 
         // Distroy all lightGallery modules
-        for (var key in window.lgModules) {
-            if (_this.modules[key]) {
-                _this.modules[key].destroy(d);
-            }
-        }
+        // for (var key in window.lgModules) {
+        //     if (_this.modules[key]) {
+        //         _this.modules[key].destroy(d);
+        //     }
+        // }
 
         this.lGalleryOn = false;
 
         clearTimeout(_this.hideBartimeout);
         this.hideBartimeout = false;
-        _lgUtils2.default.off(window, '.lg');
+
         _lgUtils2.default.removeClass(document.body, 'lg-on');
         _lgUtils2.default.removeClass(document.body, 'lg-from-hash');
 
@@ -1544,21 +1525,6 @@
         }
 
         _lgUtils2.default.removeClass(document.querySelector('.lg-backdrop'), 'in');
-        setTimeout(function () {
-            try {
-                if (_this.outer) {
-                    _this.outer.parentNode.removeChild(_this.outer);
-                }
-
-                if (document.querySelector('.lg-backdrop')) {
-                    document.querySelector('.lg-backdrop').parentNode.removeChild(document.querySelector('.lg-backdrop'));
-                }
-
-                if (!d) {
-                    _lgUtils2.default.trigger(_this.el, 'onCloseAfter');
-                }
-            } catch (err) {}
-        }, _this.s.backdropDuration + 50);
     };
 
     window.lightGallery = function (el, options) {
