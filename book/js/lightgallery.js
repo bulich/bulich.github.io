@@ -1525,6 +1525,8 @@
         }
 
         _lgUtils2.default.removeClass(document.querySelector('.lg-backdrop'), 'in');
+
+        alert("closed!")
     };
 
     window.lightGallery = function (el, options) {
