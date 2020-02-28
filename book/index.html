@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/blueimp-gallery.css" />
+  </head>
+  <body>
+    <button id="lightgallery">Читать онлайн</button>
+    <div
+    id="blueimp-gallery"
+    class="blueimp-gallery blueimp-gallery-controls blueimp-gallery-carousel"
+  >
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="fullscreen"></a>
+    <a class="play-pause"></a>
+  </div>
+
+    <script src="js/blueimp-gallery.min.js"></script>
+    <script>
+      window.addEventListener("load", function(event) {
+        var pages = [];
+
+        for (var index = 0; index < 393; index++) {
+          var src = "http://dev.100tatarstan.ru/images/uploads/book/" + zeroPad(index, 3) + ".jpeg";
+          pages.push(src);
+        }
+
+        document
+          .querySelector("#lightgallery")
+          .addEventListener("click", function() {
+            blueimp.Gallery(pages, {
+              container: '#blueimp-gallery',
+              fullScreen: true,
+              carousel: false,
+              clearSLides: false,
+              preloadRange: 1,
+              toggleControlsOnSlideClick: false,
+              closeOnEscape: false,
+            });
+          });
+
+        function zeroPad(num, places) {
+          var zero = places - num.toString().length + 1;
+          return Array(+(zero > 0 && zero)).join("0") + num;
+        }
+      });
+    </script>
+  </body>
+</html>
