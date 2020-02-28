@@ -1461,15 +1461,36 @@
         var _this = this;
         var mousedown = false;
         _lgUtils2.default.on(this.outer.querySelector('.lg-close'), 'click.lg', function () {
-            _this.destroy();
+            _this.destroy(false);
         });
+
+        if (_this.s.closable) {
+
+            // If you drag the slide and release outside gallery gets close on chrome
+            // for preventing this check mousedown and mouseup happened on .lg-item or lg-outer
+            _lgUtils2.default.on(_this.outer, 'mousedown.lg', function (e) {
+
+                if (_lgUtils2.default.hasClass(e.target, 'lg-outer') || _lgUtils2.default.hasClass(e.target, 'lg-item') || _lgUtils2.default.hasClass(e.target, 'lg-img-wrap')) {
+                    mousedown = true;
+                } else {
+                    mousedown = false;
+                }
+            });
+
+            _lgUtils2.default.on(_this.outer, 'mouseup.lg', function (e) {
+
+                if (_lgUtils2.default.hasClass(e.target, 'lg-outer') || _lgUtils2.default.hasClass(e.target, 'lg-item') || _lgUtils2.default.hasClass(e.target, 'lg-img-wrap') && mousedown) {
+                    if (!_lgUtils2.default.hasClass(_this.outer, 'lg-dragging')) {
+                        _this.destroy();
+                    }
+                }
+            });
+        }
     };
 
     Plugin.prototype.destroy = function (d) {
 
         var _this = this;
-
-        console.log(this)
 
         if (!d) {
             _lgUtils2.default.trigger(_this.el, 'onBeforeClose');
@@ -1488,7 +1509,7 @@
         if (d) {
             if (!_this.s.dynamic) {
                 // only when not using dynamic mode is $items a jquery collection
-                
+
                 for (var i = 0; i < this.items.length; i++) {
                     _lgUtils2.default.off(this.items[i], '.lg');
                     _lgUtils2.default.off(this.items[i], '.lgcustom');
